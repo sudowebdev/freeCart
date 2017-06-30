@@ -17,17 +17,33 @@ router.get('/', (req,res) => {
 
 
 router.post('/:id', (req,res)=>{
-	Cart.create({
-            productId: req.params.id,
-            userId: 1,
-            quantity: 1
-        }).then((cartRow) => {
+	 Cart
+  	.findOrCreate({where: {productId: req.params.id, userId: 1}, defaults: { quantity: 1 }})
+  	.spread(function(productFound, created){
+  		
+	    //spread divides the array into its 2 parts and passes them as arguments to the callback function   
+	  	if(created){
+	  	   //when the entry is not found. It gets created.
+	    	console.log('Created :',created);
 
-			res.send("Success");
-
-    }).catch((err) => {
-        res.send(err);
-    })
+	  	}else{
+	      //when the entry exists. the quantity value gets updated
+	  		console.log('Found :',productFound);
+	  		Cart.find({
+		        where: {
+		            productId: req.params.id, 
+		            userId: 1
+		        }
+    		}).then((model)=>{
+		    	console.log('Inside the model');
+		        //Incrementing the value of quantity column by 1
+		        
+		        return model.increment({"quantity": 1});
+	    	});
+	  		
+  	}
+  	res.send('Success');
+})
 
 })
 module.exports = router;
