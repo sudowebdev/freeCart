@@ -23,9 +23,7 @@ router.post('/:id', (req,res)=>{
             quantity: 1
         }).then((cartRow) => {
 
-
-            
-            res.send("Success");
+			res.send("Success");
 
     }).catch((err) => {
         res.send(err);
