@@ -3,9 +3,6 @@ const Cart = require('../db/models.js').models.Cart;
 
 
 router.get('/:id', (req, res)=>{
-
-	
-
 	Cart.findAll(
         {
             where: {
