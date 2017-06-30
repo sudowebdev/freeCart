@@ -19,4 +19,8 @@ router.get('/:id/cart', (req, res)=>{
 
 })
 
+router.put('/:userid/:productid/increment', (req, res)=>{
+	
+})
+
 module.exports = router;
