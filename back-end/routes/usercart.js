@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Cart = require('../db/models.js').models.Cart;
 
 
-router.get('/:id', (req, res)=>{
+router.get('/:id/cart', (req, res)=>{
 	Cart.findAll(
         {
             where: {

@@ -16,7 +16,7 @@ router.get('/', (req,res) => {
 })
 
 
-router.post('/:id', (req,res)=>{
+router.post('/addtocart/:id', (req,res)=>{
 	 Cart
   	.findOrCreate({where: {productId: req.params.id, userId: 1}, defaults: { quantity: 1 }})
   	.spread(function(productFound, created){
