@@ -33,4 +33,8 @@ router.put('/:userid/:productid/increment', (req, res)=>{
 	    	});
 })
 
+router.put('/:userid/:productid/decrement', (req, res)=>{
+
+	
+})
 module.exports = router;
