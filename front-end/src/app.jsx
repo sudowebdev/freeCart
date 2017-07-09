@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
+import ProductMain from './Components/ProductCatalog/ProductMain.jsx';
 class App extends React.Component{
 
     render(){ 
     	return(
-           <div>Hello World</div>
+           <ProductMain />
     	);
     }
 }
