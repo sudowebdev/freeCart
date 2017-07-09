@@ -2,7 +2,7 @@ import React from 'react';
 
 import Img from './Img.jsx';
 import Text from './Text.jsx';
-
+import Btn from './Btn.jsx';
 
 export default class ProductDisplay extends React.Component{
 
@@ -18,7 +18,7 @@ export default class ProductDisplay extends React.Component{
 								<Img src={object.imgurl} />
 								<Text text={object.name} />
 								<Text text={object.price} />
-								<Text text={object.id} />
+								<Btn id={object.id} />
 							</div>	
 						)
 					
