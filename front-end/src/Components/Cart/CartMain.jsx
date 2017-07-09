@@ -23,12 +23,14 @@ export default class CartMain extends React.Component{
         };
 
         axios.get(url, config)
-        	.then((response){
-        		console.log(response);
+        	.then(function(response){
+                console.log(response);
 
-        		this.setState(cartProducts: response.data);
-        	})
-        	.catch((error){
+                
+                
+                this.setState({cartProducts: response.data});
+            }.bind(this))
+        	.catch((error) => {
         		console.log(error);
         	})
 	}
@@ -36,10 +38,10 @@ export default class CartMain extends React.Component{
 	render(){
 
 
-	return(
+		return(
 
-		<CartDisplay cart={this.state.cartProducts}/>
-		);
+			<CartDisplay cart={this.state.cartProducts}/>
+			);
 	}
 
 }

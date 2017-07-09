@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 
 
 import ProductMain from './Components/ProductCatalog/ProductMain.jsx';
+import CartMain from './Components/Cart/CartMain.jsx'
+
 class App extends React.Component{
 
     render(){ 
     	return(
-           <ProductMain />
+           <CartMain />
     	);
     }
 }
