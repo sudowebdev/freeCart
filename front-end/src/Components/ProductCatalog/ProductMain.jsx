@@ -1,23 +1,38 @@
 import React from 'react';
 
-import Img from './Img.jsx';
-import Text from './Text.jsx';
+import ProductDisplay from './ProductDisplay.jsx';
+
+import axios from 'axios';
 
 export default class ProductMain extends React.Component{
 
 	constructor(){
 		super();
 
-		this.state = {src: "./images/iphone7.jpeg", name: "iPhone7", price: 0, id: 0};
+		this.state = {products: []};
+	}
+
+	componentDidMount(){
+
+		var url = "http://localhost:3333/api/products";
+        var config = {};                                                                                                                               
+        config.headers = {
+            
+            "Content-Type" : "application/x-www-form-urlencoded"
+        };
+
+        axios.get(url, config).then(
+            function(response){
+                console.log(response);
+
+                
+                var products = response.data;
+                this.setState({products: products});
+            }.bind(this))
 	}
 	render(){
 		return (
-			<div>
-				<Img src={this.state.src} />
-				<Text text={this.state.name} />
-				<Text text={this.state.price} />
-				<Text text={this.state.id} />
-			</div>
+			<ProductDisplay products={this.state.products} />
 			);
 	}
 } 
