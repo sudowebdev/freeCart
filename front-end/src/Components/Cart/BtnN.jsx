@@ -4,13 +4,7 @@ import axios from 'axios';
 export default class BtnN extends React.Component{
 
 	onClickHandler(){
-		axios.put('http://localhost:3333/api/user/1/' + this.props.id + '/decrement')
-			.then((response) => {
-				console.log(response.data);
-			})
-			.catch((error) => {
-				console.log(error);
-			})
+		this.props.decrement(this.props.id);
 	}
 
 	render(){

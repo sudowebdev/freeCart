@@ -28,12 +28,12 @@ export default class CartDisplay extends React.Component{
 								<Text text={object.id} />
 								<Text text={object.productId} />
 								<Text text={object.quantity} />
-								<BtnP id={object.productId} />
-								<BtnN id={object.productId} />
+								<BtnP id={object.productId} increment={this.props.increment}/>
+								<BtnN id={object.productId} decrement={this.props.decrement}/>
 							</tr>
 
 							);
-					})
+					}.bind(this))
 				}
 				</tbody>
 			</table>	
