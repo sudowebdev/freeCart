@@ -6,7 +6,7 @@ export default class Btn extends React.Component{
 
 	onClickListener(){
 		axios.post('http://localhost:3333/api/products/addtocart/' + this.props.id, {
-		    
+		  
 		  })
 		  .then(function (response) {
 		    console.log(response);
